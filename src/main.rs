@@ -2,10 +2,7 @@ use std::io::prelude::*;
 use std::fs::File;
 
 fn main() {
-  let f = match File::open("input.txt") {
-    Err(e) => panic!("{}", e),
-    Ok(f) => f
-  };
+  let f = match File::open("input.txt").unwrap();
   let mut floor:i32 = 0;
 
   for ch in f.bytes().filter_map(|result| result.ok()) {
